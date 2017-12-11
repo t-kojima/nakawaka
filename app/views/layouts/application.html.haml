@@ -3,10 +3,25 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Nakawaka
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %header
+      .navbar.navbar-default.navbar-fixed-top
+        .container
+          .navbar-header
+            %a{href: "/", class: "navbar-brand"} Umi
+            %button(class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main")
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+          .navbar-collapse.collapse#navbar-main
+            %ul.nav.navbar-nav
+              %li
+                %a{href: "/"} Top
     %p.notice= notice
     %p.alert= alert
     = yield
