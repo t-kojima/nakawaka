@@ -1,31 +1,41 @@
 :css
   article {
+    height: 100%;
+    flex: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     }
   section {    
-    display: inline-block;
-    flex: none;
+    flex none;
+    margin: 1rem;
   }
-  form {    
-    padding: 10px;
+  .panel {    
+    padding: 2rem;
     border-radius: 1rem;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.4);
   }
-  .btn {
-    width: 230px;
+  .stretch {
+    width: 100%;
   }
 
 %article
   %section
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .form-group
-        .field
-          = f.text_field :login, class: "form-control", :placeholder => "アカウント"
-      .form-group
-        .field
-          = f.password_field :password, autocomplete: "off", class: "form-control", :placeholder => "パスワード"
-      .actions
-        = f.submit "ログイン", class: "btn btn-success"
-    %p.alert= alert
+    .panel
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-group
+          .field
+            = f.text_field :login, class: "form-control", placeholder: "アカウント"
+        .form-group
+          .field
+            = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード"
+        .actions
+          = f.submit "ログイン", class: "btn btn-success stretch"
+  - if alert
+    %section
+      .alert.alert-dismissible.alert-danger
+        = button_tag "×", class: "close", data: { dismiss: "alert" }
+        %strong Error
+        %p
+          = alert

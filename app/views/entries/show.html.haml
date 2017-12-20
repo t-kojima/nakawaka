@@ -1,0 +1,17 @@
+= breadcrumbs :entry, @entry
+
+%p#notice= notice
+
+%p
+  %b Title:
+  = @entry.title
+%p
+  %b Tag:
+  = @entry.tag
+%p
+  %b Role:
+  = @entry.role
+
+= link_to 'Edit', edit_entry_path(@entry)
+\|
+= link_to 'Back', entries_path

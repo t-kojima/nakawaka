@@ -76,3 +76,5 @@ gem 'font-awesome-rails'
 
 gem 'devise'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', require: 'bcrypt' 
+
+gem 'gretel'

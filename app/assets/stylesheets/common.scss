@@ -1,5 +1,14 @@
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+html {
+    height: 100%;
 }
+
+body {
+    height: 100%;
+    background: image-url("tall-trees-taller-cliff_925x.jpg") center center / cover no-repeat fixed;
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        background-image: image-url("tall-trees-taller-cliff_767x.jpg");
+    }
+  }

@@ -24,8 +24,11 @@
             %ul.nav.navbar-nav
               %li
                 %a{href: "/"} Top
-    %p.notice= notice
-    %p.alert= alert
-    = yield
-    - if user_signed_in?
-      %p= link_to "logout", destroy_user_session_path, method: :delete
+    -#%p.notice= notice
+    -#%p.alert= alert
+    .container
+      - if user_signed_in?
+        %p= link_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-info"
+      = breadcrumbs pretext: "You are here: ", separator: " &rsaquo; "
+      = yield
+
